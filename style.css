@@ -1,0 +1,57 @@
+body{
+    box-sizing: border-box;
+    margin: 0;
+}
+
+.map {
+    width: 50vw;
+    height: 60vh;
+}
+
+header{
+    background: #1E1E44;
+    color: #E2E4DE;
+    text-align: center;
+    align-self: center;
+}
+
+.header ul{
+    list-style: none;
+}
+
+.header ul element{
+    margin-left: 8px;
+}
+
+.singlrcountry{
+    width: 80%;
+    margin: 0 auto;
+    background: #E2E4DE;
+}
+
+#content{
+    background: #1E1E44;
+    border: #E2E4DE solid 1px;
+}
+
+#onBody{
+    background: url("https://cdn.pixabay.com/photo/2012/01/09/09/59/earth-11595_1280.jpg");
+
+}
+
+/* .cardEl{
+    margin: 0 auto;
+} */
+
+footer{
+    background: #000010;
+    min-height: 80px;
+    color: #E2E4DE;
+    padding-top: 26px;
+    /* text-align: center; */
+}
+
+.footer figure a {
+    text-decoration: none;
+    color: #E2E4DE;
+}
