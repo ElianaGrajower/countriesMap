@@ -36,19 +36,17 @@ header{
 
 #onBody{
     background: url("https://cdn.pixabay.com/photo/2012/01/09/09/59/earth-11595_1280.jpg");
-
 }
 
-/* .cardEl{
+.map{
     margin: 0 auto;
-} */
+}
 
 footer{
     background: #000010;
     min-height: 80px;
     color: #E2E4DE;
     padding-top: 26px;
-    /* text-align: center; */
 }
 
 .footer figure a {
