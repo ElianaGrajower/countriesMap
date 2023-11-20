@@ -30,9 +30,15 @@ const createColCard = (obj) => {
                 <img class="w-100" src="${obj[0].flags.png}" alt="flag"/>
             </div>
         </div>
+        
+            
     `;
-    drowMap(holder, obj[0].latlng[0], obj[0].latlng[1]);
     holder.className = "d-flex justify-content-center m-5"
+    holder.innerHTML = `<div class="Mymap">
+        <iframe width="900px" height="300px" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"
+            src="https://maps.google.com/maps?q=${obj[0].latlng[0]},${obj[0].latlng[1]}&hl=es&z=5&output=embed">
+        </iframe>
+    </div>`
     colEL.append(cardEl);
     colEL.append(holder);
     content.append(colEL);
@@ -42,12 +48,13 @@ const createColCard = (obj) => {
         span.addEventListener("click", () => {
             const country = span.dataset.country;
             console.log("borderspan" + country);
-            render(country);
+            renderFull(country);
         });
     });
 };
 
 const createCardOptions = (obj) => {
+    console.log(obj);
     const colEL = document.createElement("div");
     colEL.className = "col-md-4 p-1";
     const cardEl = document.createElement("div");
@@ -59,7 +66,8 @@ const createCardOptions = (obj) => {
         <h3>${obj.name.common}</h3> 
     `;
     colEL.append(cardEl);
-    cardEl.onclick = () => renderFull(obj.ccn3);
+    console.log(obj.cca3);
+    cardEl.onclick = () => renderFull(obj.cca3);
     return colEL;
 }
 
@@ -90,19 +98,5 @@ const searchCountry = (event) => {
 searchForm.addEventListener("submit", searchCountry);
 
 const holder = document.getElementById("map");
-
-function drowMap(holder, lat, lon) {
-    const mapEl = document.createElement("div");
-    holder.innerHTML = "";
-    holder.append(mapEl);
-    mapEl.id = `chipopo${Date.now()}`;
-    mapEl.className = "map";
-    const map = L.map(mapEl.id).setView([`${lat}`, `${lon}`], 13);
-    L.tileLayer("https://tile.openstreetmap.org/{z}/{x}/{y}.png", {
-        maxZoom: 12,
-        attribution:
-            '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>',
-    }).addTo(map);
-}
 
 window.render = render;
